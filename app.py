@@ -1,10 +1,11 @@
 from flask import Flask, render_template, request, redirect, url_for, session
 import sqlite3
+import os
 
 app = Flask(__name__)
 app.secret_key = "project_management_secret_key"
 
-DATABASE = "database.db"
+DATABASE = os.path.join(os.path.dirname(os.path.abspath(__file__)), "database.db")
 
 
 def get_db():
@@ -320,7 +321,7 @@ def update_task(task_id, status):
 
     return redirect(url_for("dashboard"))
 
+  create_tables()
 
 if __name__ == "__main__":
-    create_tables()
     app.run(debug=True)
