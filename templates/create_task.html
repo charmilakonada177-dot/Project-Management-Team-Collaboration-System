@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Create Task</title>
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='style.css') }}"
+    >
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>Create Task</h1>
+
+    <form method="POST">
+
+        <label>Task Title</label>
+
+        <input
+            type="text"
+            name="title"
+            required
+        >
+
+        <label>Description</label>
+
+        <textarea
+            name="description"
+            rows="5"
+        ></textarea>
+
+        <label>Due Date</label>
+
+        <input
+            type="date"
+            name="due_date"
+        >
+
+        <button type="submit">
+            Create Task
+        </button>
+
+    </form>
+
+</div>
+
+</body>
+
+</html>

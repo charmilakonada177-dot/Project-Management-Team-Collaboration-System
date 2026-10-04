@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Dashboard</title>
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='style.css') }}"
+    >
+
+</head>
+
+<body>
+
+<nav>
+
+    <h2>Project Management System</h2>
+
+    <div>
+        Welcome, {{ session["user_name"] }}
+
+        |
+        <a href="/projects">Projects</a>
+
+        |
+        <a href="/logout">Logout</a>
+    </div>
+
+</nav>
+
+<div class="dashboard">
+
+    <h1>Dashboard</h1>
+
+    <div class="cards">
+
+        <div class="card">
+
+            <h3>Total Projects</h3>
+
+            <p>{{ projects|length }}</p>
+
+        </div>
+
+        <div class="card">
+
+            <h3>Total Tasks</h3>
+
+            <p>{{ total_tasks }}</p>
+
+        </div>
+
+        <div class="card">
+
+            <h3>Completed Tasks</h3>
+
+            <p>{{ completed_tasks }}</p>
+
+        </div>
+
+    </div>
+
+    <h2>Projects</h2>
+
+    <a class="button" href="/create-project">
+        + Create Project
+    </a>
+
+    <br><br>
+
+    {% for project in projects %}
+
+    <div class="project">
+
+        <h3>{{ project["name"] }}</h3>
+
+        <p>{{ project["description"] }}</p>
+
+        <a href="/project/{{ project['id'] }}">
+            View Project
+        </a>
+
+    </div>
+
+    {% else %}
+
+    <p>No projects created yet.</p>
+
+    {% endfor %}
+
+</div>
+
+</body>
+
+</html>

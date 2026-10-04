@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Create Project</title>
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='style.css') }}"
+    >
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>Create New Project</h1>
+
+    <form method="POST">
+
+        <label>Project Name</label>
+
+        <input
+            type="text"
+            name="name"
+            required
+        >
+
+        <label>Description</label>
+
+        <textarea
+            name="description"
+            rows="5"
+        ></textarea>
+
+        <label>Start Date</label>
+
+        <input
+            type="date"
+            name="start_date"
+        >
+
+        <label>End Date</label>
+
+        <input
+            type="date"
+            name="end_date"
+        >
+
+        <button type="submit">
+            Create Project
+        </button>
+
+    </form>
+
+    <br>
+
+    <a href="/dashboard">Back to Dashboard</a>
+
+</div>
+
+</body>
+
+</html>
